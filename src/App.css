@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #2D5A4A;
+  --secondary: #E8D5C4;
+  --accent: #D4A574;
+  --bg-cream: #FDFBF8;
+  --text-dark: #1A1A1A;
+  --text-light: #6B6B6B;
+}
+
+* {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+.bg-botanical {
+  background-color: var(--bg-cream);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(45, 90, 74, 0.03) 0%, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(212, 165, 116, 0.05) 0%, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(45, 90, 74, 0.03) 0%, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(212, 165, 116, 0.05) 0%, transparent 50%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 区域选择器横向滚动（手机端） */
+.area-tabs-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox隐藏滚动条 */
+  padding-bottom: 4px;
+}
+
+.area-tabs-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari隐藏滚动条 */
+}
+
+.area-tabs-scroll > button {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* 隐藏滚动条工具类 */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, #3d7a64 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(45, 90, 74, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45, 90, 74, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tag-success {
+  background: rgba(45, 90, 74, 0.1);
+  color: var(--primary);
+}
+
+.tag-warning {
+  background: rgba(212, 165, 116, 0.2);
+  color: #b8860b;
+}
+
+.cost-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.efficacy-high { color: #22c55e; }
+.efficacy-medium { color: #f59e0b; }
+.efficacy-low { color: #94a3b8; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(45, 90, 74, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(45, 90, 74, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(45, 90, 74, 0.4);
+}
+
+.solution-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.solution-icon.home { background: rgba(34, 197, 94, 0.1); }
+.solution-icon.natural { background: rgba(34, 197, 94, 0.15); }
+.solution-icon.product { background: rgba(59, 130, 246, 0.1); }
+.solution-icon.medical { background: rgba(168, 85, 247, 0.1); }
+
+.step-list li {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 12px;
+}
+
+.step-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, var(--primary), #3d7a64);
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.step-list li::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 16px;
+  width: 4px;
+  height: calc(100% + 4px);
+  background: rgba(45, 90, 74, 0.15);
+  border-radius: 2px;
+}
+
+.step-list li:last-child::after {
+  display: none;
+}
+
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.area-card {
+  padding: 24px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.area-card:hover {
+  transform: scale(1.02);
+}
+
+.area-card.active {
+  border-color: var(--primary);
+  box-shadow: 0 8px 30px rgba(45, 90, 74, 0.15);
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+
+/* ============================================
+   全设备响应式适配样式
+   ============================================ */
+
+/* 响应式字体大小 */
+@media (max-width: 640px) {
+  .text-responsive-hero {
+    font-size: 1.875rem !important;
+    line-height: 1.2 !important;
+  }
+  .text-responsive-lg {
+    font-size: 1.25rem !important;
+  }
+  .text-responsive-base {
+    font-size: 0.875rem !important;
+  }
+  .text-responsive-sm {
+    font-size: 0.75rem !important;
+  }
+}
+
+/* 移动端安全区域适配 */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* 底部导航优化 - 手机 */
+@media (max-width: 480px) {
+  .bottom-nav {
+    padding-bottom: 0.5rem;
+  }
+  .bottom-nav-button {
+    padding: 0.5rem 0.25rem;
+    min-width: 48px;
+    min-height: 48px;
+  }
+}
+
+/* 极小屏幕优化 (iPhone SE 等) */
+@media (max-width: 375px) {
+  .xs-hide {
+    display: none !important;
+  }
+  .grid-1-col-xs {
+    grid-template-columns: 1fr !important;
+  }
+  .px-xs {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}
+
+/* 移动端触摸优化 */
+@media (max-width: 768px) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  .touch-target-lg {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  .card-mobile {
+    padding: 1rem;
+  }
+}
+
+/* 平板适配 */
+@media (min-width: 481px) and (max-width: 768px) {
+  .tablet-full {
+    max-width: 100% !important;
+  }
+}
+
+/* 大屏幕优化 */
+@media (min-width: 1280px) {
+  .lg-comfortable {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* 移动端模态框优化 */
+@media (max-width: 640px) {
+  .modal-mobile {
+    border-radius: 1.5rem 1.5rem 0 0;
+    max-height: 95vh;
+    margin-top: auto;
+  }
+  .modal-mobile-content {
+    padding: 1rem;
+  }
+}
+
+/* 移动端网格间距优化 */
+@media (max-width: 640px) {
+  .gap-responsive {
+    gap: 0.75rem;
+  }
+}
+
+/* 水平滚动容器 (用于筛选标签等) */
+.scroll-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scroll-x::-webkit-scrollbar {
+  display: none;
+}
+
+/* 移动端固定元素优化 */
+@media (max-width: 768px) {
+  .mobile-fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+}
+
+/* 响应式卡片布局 */
+.product-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .product-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .product-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 移动端搜索栏 */
+@media (max-width: 640px) {
+  .search-input-mobile {
+    font-size: 16px; /* 防止iOS缩放 */
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+  }
+}
+
+/* 移动端底部导航间距 */
+@media (max-width: 480px) {
+  .nav-item-spacing {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* 旋转屏幕适配 */
+@media (max-height: 500px) and (orientation: landscape) {
+  .landscape-adjust {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .landscape-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
