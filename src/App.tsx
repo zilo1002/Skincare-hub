@@ -39,6 +39,32 @@ import {
   saveUserSkinTestResult,
   loadUserDataFromSupabase
 } from './lib/userDataService'
+import {
+  getProducts,
+  type Product as SupabaseProduct
+} from './lib/productService'
+
+// 好物推荐的排序：评分高在前，评分相同则评价数多的在前
+const sortProductsByRecommendation = (list: typeof sampleProducts) =>
+  [...list].sort((a, b) => b.rating - a.rating || b.reviews_count - a.reviews_count);
+
+// 把 Supabase 里的一行产品转成页面卡片用的样子（字段和内置数据一致）
+const toDisplayProduct = (p: SupabaseProduct): (typeof sampleProducts)[number] => ({
+  name: p.name,
+  brand: p.brand,
+  category: p.category,
+  price: p.price,
+  key_ingredients: p.key_ingredients ?? '',
+  suitable_skin_types: p.suitable_skin_types ?? [],
+  rating: p.rating ?? 0,
+  reviews_count: p.reviews_count ?? 0,
+  source: p.source ?? '',
+  country: p.country ?? '',
+  is_affordable: p.is_affordable ?? false,
+  image_url: p.image_url ?? '',
+  purchase_url: p.purchase_url ?? '',
+  description: p.description ?? '',
+});
 
 // 浏览器兼容性检测
 const useBrowserInfo = () => {
@@ -89,6 +115,12 @@ const useBrowserInfo = () => {
 // 复制网址功能
 const useCopyUrl = () => {
   const [copied, setCopied] = useState(false);
+  const [copyFailed, setCopyFailed] = useState(false);
+
+  const markFailed = () => {
+    setCopyFailed(true);
+    setTimeout(() => setCopyFailed(false), 2500);
+  };
 
   const copyUrl = useCallback(() => {
     const url = window.location.href;
@@ -96,7 +128,7 @@ const useCopyUrl = () => {
       navigator.clipboard.writeText(url).then(() => {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
-      });
+      }).catch(markFailed);
     } else {
       // 降级方案
       const textarea = document.createElement('textarea');
@@ -110,13 +142,13 @@ const useCopyUrl = () => {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       } catch {
-        alert('复制失败，请手动复制: ' + url);
+        markFailed();
       }
       document.body.removeChild(textarea);
     }
   }, []);
 
-  return { copied, copyUrl };
+  return { copied, copyFailed, copyUrl };
 };
 
 // LocalStorage hook
@@ -851,6 +883,9 @@ function App() {
   const [selectedProblem, setSelectedProblem] = useState<SkinProblem | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<typeof sampleProducts[0] | null>(null);
   const [productFilter, setProductFilter] = useState<string>('all');
+  // 好物列表：先用内置的 49 款顶着，Supabase 抓到数据后换成数据库里的（按评分推荐排序）
+  const [products, setProducts] = useState<typeof sampleProducts>(sortProductsByRecommendation(sampleProducts));
+  const [productsLoading, setProductsLoading] = useState(true);
   const [selectedSkinType, setSelectedSkinType] = useState<SkinType | null>(null);
   const [selectedBaumannResult, setSelectedBaumannResult] = useState<string | null>(null);
   const [selectedIngredient, setSelectedIngredient] = useState<Ingredient | null>(null);
@@ -862,11 +897,12 @@ function App() {
   const [favoriteSkinTypes, setFavoriteSkinTypes] = useState<string[]>([]);
   const [showAddSkinType, setShowAddSkinType] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
+  const [showSignOutConfirm, setShowSignOutConfirm] = useState(false);
 
   const { user, signOut } = useAuth();
 
   const browserInfo = useBrowserInfo();
-  const { copied, copyUrl } = useCopyUrl();
+  const { copied, copyFailed, copyUrl } = useCopyUrl();
 
   // 加载用户数据
   useEffect(() => {
@@ -899,6 +935,22 @@ function App() {
 
     loadUserData();
   }, [user]);
+
+  // 好物推荐：从 Supabase 的 products 表抓数据，按评分 + 评价数排推荐顺序；
+  // 表里没数据或抓不到时，继续用内置的 49 款，页面不空白
+  useEffect(() => {
+    let cancelled = false;
+    const loadProducts = async () => {
+      const rows = await getProducts();
+      if (cancelled) return;
+      if (rows.length > 0) {
+        setProducts(sortProductsByRecommendation(rows.map(toDisplayProduct)));
+      }
+      setProductsLoading(false);
+    };
+    loadProducts();
+    return () => { cancelled = true; };
+  }, []);
 
   // 监听数据同步事件
   useEffect(() => {
@@ -1057,8 +1109,8 @@ function App() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
                 </svg>
-                <span className="hidden sm:inline">{copied ? '已复制!' : '分享'}</span>
-                <span className="sm:hidden">{copied ? '✓' : '📤'}</span>
+                <span className="hidden sm:inline">{copied ? '已复制!' : copyFailed ? '复制失败' : '分享'}</span>
+                <span className="sm:hidden">{copied ? '✓' : copyFailed ? '⚠️' : '📤'}</span>
               </button>
               <button
                 onClick={() => setActiveTab('favorites')}
@@ -1442,7 +1494,8 @@ function App() {
           <div className="max-w-6xl mx-auto px-3 sm:px-4">
             <div className="text-center mb-6 sm:mb-8">
               <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">💄 护肤品推荐</h3>
-              <p className="text-gray-500 text-xs sm:text-sm">精选国货好物 + 开价品牌</p>
+              <p className="text-gray-500 text-xs sm:text-sm">精选国货好物 + 开价品牌 · 按评分推荐 · 共 {products.length} 款</p>
+              {productsLoading && <p className="text-gray-400 text-xs mt-1">正在加载最新推荐…</p>}
             </div>
 
             {/* 分类筛选 */}
@@ -1480,7 +1533,7 @@ function App() {
 
             {/* 产品列表 */}
             <div className="product-card-grid">
-              {sampleProducts
+              {products
                 .filter(p => {
                   if (productFilter === 'all') return true;
                   if (productFilter === 'chinese') return p.country === '中国';
@@ -1544,9 +1597,7 @@ function App() {
                 onClick={() => {
                   if (item.id === 'user') {
                     if (user) {
-                      if (confirm('确定要退出登录吗？')) {
-                        signOut();
-                      }
+                      setShowSignOutConfirm(true);
                     } else {
                       setShowAuthModal(true);
                     }
@@ -1585,6 +1636,18 @@ function App() {
       {selectedIngredient && <InfoModal type="ingredient" data={selectedIngredient} onClose={() => setSelectedIngredient(null)} />}
       {showAddSkinType && <AddSkinTypeModal onClose={() => setShowAddSkinType(false)} onAdd={addCustomSkinType} />}
       {showAuthModal && <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />}
+      {showSignOutConfirm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop" onClick={() => setShowSignOutConfirm(false)}>
+          <div className="bg-white rounded-3xl max-w-sm w-full p-6" onClick={e => e.stopPropagation()}>
+            <h2 className="text-lg font-bold text-gray-800 mb-2">退出登录</h2>
+            <p className="text-gray-500 text-sm mb-6">确定要退出登录吗？</p>
+            <div className="flex gap-3 justify-end">
+              <button onClick={() => setShowSignOutConfirm(false)} className="px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium">取消</button>
+              <button onClick={() => { setShowSignOutConfirm(false); signOut(); }} className="px-4 py-2 rounded-full bg-red-500 text-white text-sm font-medium">退出登录</button>
+            </div>
+          </div>
+        </div>
+      )}
       {selectedProduct && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop" onClick={() => setSelectedProduct(null)}>
           <div className="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
@@ -1671,10 +1734,11 @@ const AddSkinTypeModal = ({ onClose, onAdd }: { onClose: () => void; onAdd: (ski
   const [type, setType] = useState<'DS' | 'DR' | 'OS' | 'OR'>('DR');
   const [pigmented, setPigmented] = useState(false);
   const [wrinkle, setWrinkle] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = () => {
     if (!name.trim() || !code.trim()) {
-      alert('请填写肤质名称和代码');
+      setError('请填写肤质名称和代码');
       return;
     }
     onAdd({ name, code: code.toUpperCase(), emoji, type, pigmented, wrinkle });
@@ -1714,7 +1778,7 @@ const AddSkinTypeModal = ({ onClose, onAdd }: { onClose: () => void; onAdd: (ski
             <input
               type="text"
               value={name}
-              onChange={e => setName(e.target.value)}
+              onChange={e => { setName(e.target.value); setError(''); }}
               placeholder="例如：我的混合肌"
               className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none"
             />
@@ -1726,12 +1790,13 @@ const AddSkinTypeModal = ({ onClose, onAdd }: { onClose: () => void; onAdd: (ski
             <input
               type="text"
               value={code}
-              onChange={e => setCode(e.target.value.toUpperCase())}
+              onChange={e => { setCode(e.target.value.toUpperCase()); setError(''); }}
               placeholder="例如：DRPW"
               maxLength={4}
               className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none"
             />
             <p className="text-xs text-gray-500 mt-1">4位代码，如：DSNW、ORPT</p>
+            {error && <p className="text-sm text-red-500 mt-2">{error}</p>}
           </div>
 
           {/* Emoji选择 */}
