@@ -6,6 +6,15 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -35,59 +44,23 @@ jobs:
         run: pnpm build
         env:
           NODE_ENV: production
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: dist
           path: dist/
-          retention-days: 7
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     environment:
-      name: production
-      url: ${{ steps.deploy.outputs.url }}
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: dist
-          path: dist/
-
-      - name: Deploy to MiniMax Space
-        run: |
-          echo "Build completed! Files are ready in ./dist/"
-          echo "📁 artifacts: ${{ github.workspace }}/dist/"
-          echo ""
-          echo "⚠️ 注意: 由于MiniMax部署API需要内部认证"
-          echo "   请手动部署dist文件夹，或使用MiniMax平台的部署功能"
-          echo ""
-          echo "部署说明:"
-          echo "1. 下载 artifacts 中的 dist 文件夹"
-          echo "2. 在 MiniMax 平台手动部署"
-          echo ""
-          echo "或者如果你有 MiniMax API Key，可以:"
-          echo "1. 添加 MINIMAX_API_KEY 到 GitHub Secrets"
-          echo "2. 修改下方脚本使用 MiniMax 部署 API"
-
-      # 以下是可选的替代部署方式（取消注释并配置即可使用）
-
-      # Netlify 部署（需在 GitHub Secrets 中添加 NETLIFY_AUTH_TOKEN 和 NETLIFY_SITE_ID）
-      # - name: Deploy to Netlify
-      #   if: env.NETLIFY_AUTH_TOKEN != ''
-      #   run: npx netlify-cli deploy --prod --dir=dist
-      #   env:
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-
-      # Vercel 部署（需在 GitHub Secrets 中添加 VERCEL_TOKEN）
-      # - name: Deploy to Vercel
-      #   if: env.VERCEL_TOKEN != ''
-      #   run: |
-      #     npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
-      #   env:
-      #     VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
