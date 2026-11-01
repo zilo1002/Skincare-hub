@@ -174,35 +174,3 @@ export async function getCategories(): Promise<string[]> {
     return [];
   }
 }
-
-// 添加产品（管理员用）
-export async function addProduct(product: Omit<Product, 'id' | 'created_at' | 'updated_at'>): Promise<Product | null> {
-  try {
-    const { data, error } = await supabase
-      .from('products')
-      .insert(product)
-      .select()
-      .single();
-
-    if (error) throw error;
-    return data;
-  } catch (err) {
-    console.error('添加产品失败:', err);
-    return null;
-  }
-}
-
-// 批量添加产品
-export async function addProductsBatch(products: Omit<Product, 'id' | 'created_at' | 'updated_at'>[]): Promise<boolean> {
-  try {
-    const { error } = await supabase
-      .from('products')
-      .insert(products);
-
-    if (error) throw error;
-    return true;
-  } catch (err) {
-    console.error('批量添加产品失败:', err);
-    return false;
-  }
-}
