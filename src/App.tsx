@@ -9,7 +9,6 @@ import {
   allAreas,
   getProblemsByArea,
   searchProblems,
-  skinTypes,
   ingredients,
   skinTestQuestions,
   baumannSkinTypes,
@@ -1085,7 +1084,7 @@ function App() {
               <span className="gradient-text"> 护肤方案</span>
             </h2>
             <p className="text-gray-500 text-sm sm:text-base mb-6 sm:mb-8">
-              收录 {skinProblems.length} 种皮肤问题 · {skinTypes.length} 种肤质指南 · {ingredients.length} 种护肤成分
+              收录 {skinProblems.length} 种皮肤问题 · {baumannSkinTypes.length} 种肤质 · {ingredients.length} 种护肤成分
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
