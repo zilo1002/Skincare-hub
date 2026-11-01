@@ -1,0 +1,93 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --prefer-offline
+
+      - name: Type check
+        run: pnpm tsc --noEmit
+
+      - name: Build
+        run: pnpm build
+        env:
+          NODE_ENV: production
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: production
+      url: ${{ steps.deploy.outputs.url }}
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Deploy to MiniMax Space
+        run: |
+          echo "Build completed! Files are ready in ./dist/"
+          echo "📁 artifacts: ${{ github.workspace }}/dist/"
+          echo ""
+          echo "⚠️ 注意: 由于MiniMax部署API需要内部认证"
+          echo "   请手动部署dist文件夹，或使用MiniMax平台的部署功能"
+          echo ""
+          echo "部署说明:"
+          echo "1. 下载 artifacts 中的 dist 文件夹"
+          echo "2. 在 MiniMax 平台手动部署"
+          echo ""
+          echo "或者如果你有 MiniMax API Key，可以:"
+          echo "1. 添加 MINIMAX_API_KEY 到 GitHub Secrets"
+          echo "2. 修改下方脚本使用 MiniMax 部署 API"
+
+      # 以下是可选的替代部署方式（取消注释并配置即可使用）
+
+      # Netlify 部署（需在 GitHub Secrets 中添加 NETLIFY_AUTH_TOKEN 和 NETLIFY_SITE_ID）
+      # - name: Deploy to Netlify
+      #   if: env.NETLIFY_AUTH_TOKEN != ''
+      #   run: npx netlify-cli deploy --prod --dir=dist
+      #   env:
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+      # Vercel 部署（需在 GitHub Secrets 中添加 VERCEL_TOKEN）
+      # - name: Deploy to Vercel
+      #   if: env.VERCEL_TOKEN != ''
+      #   run: |
+      #     npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
+      #   env:
+      #     VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
