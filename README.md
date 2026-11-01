@@ -18,7 +18,7 @@
 SkinCare Hub 是一个综合型护肤知识平台，帮助用户了解自己的肤质类型，查询各类皮肤问题的科学修复方案，并推荐高性价比的护肤品。
 
 **收录内容：**
-- 🩺 **139 个皮肤问题** —— 覆盖脸、头皮、身体、手足、头发 6 大区域
+- 🩺 **62 个皮肤问题** —— 覆盖脸、头皮、身体、手足、头发 6 大区域
 - 🔬 **16 种 Baumann 肤质分类** —— 基于皮肤科医学理论
 - 💄 **59 款护肤品** —— 国货 + 开价品牌，标注成分/价格/评分
 
@@ -58,7 +58,7 @@ SkinCare Hub 是一个综合型护肤知识平台，帮助用户了解自己的�
 ### 1. 克隆并安装
 
 ```bash
-git clone https://github.com/your-username/skincare-hub.git
+git clone https://github.com/zilo1002/Skincare-hub.git
 cd skincare-hub
 pnpm install
 ```
