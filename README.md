@@ -9,7 +9,7 @@
 [![Tailwind](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white)](https://supabase.com/)
 
-**在线体验：** https://q9z5cz1xvplf.space.minimaxi.com
+**在线体验：** https://cple3e4o3k2u.space.minimaxi.com
 
 ---
 
