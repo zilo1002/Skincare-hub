@@ -15,7 +15,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '专为敏感肌设计的舒敏保湿霜，舒缓敏感、修护屏障'
+    description: '专为敏感肌设计的舒敏保湿霜，舒缓敏感、修护屏障',
+    usage: '每次取适量（约一颗黄豆大小），早晚洁面后涂抹全脸'
   },
   {
     name: '珀莱雅双抗精华',
@@ -31,7 +32,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '抗氧化、抗糖化双效精华，改善暗沉粗糙'
+    description: '抗氧化、抗糖化双效精华，改善暗沉粗糙',
+    usage: '每次 2-3 滴，早晚洁面后使用'
   },
   {
     name: '玉泽皮肤屏障修护精华乳',
@@ -47,7 +49,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '修护皮肤屏障，缓解干燥敏感'
+    description: '修护皮肤屏障，缓解干燥敏感',
+    usage: '每次 1-2 泵，早晚洁面后使用'
   },
   {
     name: '至本舒颜修护洁面乳',
@@ -63,7 +66,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '氨基酸洁面，温和清洁不刺激'
+    description: '氨基酸洁面，温和清洁不刺激',
+    usage: '每次一颗黄豆大小，加水揉出泡沫后洗脸，早晚使用'
   },
   {
     name: 'HBN视黄醇精华乳',
@@ -79,7 +83,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '抗皱紧致精华乳，淡化细纹'
+    description: '抗皱紧致精华乳，淡化细纹',
+    usage: '每次 1-2 泵，仅晚上使用，建立耐受后隔天一次'
   },
   {
     name: '自然堂雪域精粹套装',
@@ -95,7 +100,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '补水保湿套装，源自喜马拉雅冰川水'
+    description: '补水保湿套装，源自喜马拉雅冰川水',
+    usage: '按套装内各单品用量，早晚依次使用（水→精华→乳/霜）'
   },
   {
     name: '百雀羚帧颜淡纹霜',
@@ -111,7 +117,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '淡化细纹，提拉紧致'
+    description: '淡化细纹，提拉紧致',
+    usage: '每次取适量（约一颗黄豆大小），早晚洁面后涂抹全脸'
   },
   {
     name: '相宜本草红景天精华',
@@ -127,7 +134,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '本草护肤，抗氧化美白'
+    description: '本草护肤，抗氧化美白',
+    usage: '每次 2-3 滴，早晚洁面后使用'
   },
   // 开价品牌（平价好物）
   {
@@ -144,7 +152,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '皮肤科医生推荐，24小时持久保湿'
+    description: '皮肤科医生推荐，24小时持久保湿',
+    usage: '每次取适量（约一元硬币大小），早晚洁面后涂抹全脸'
   },
   {
     name: 'The Ordinary 烟酰胺精华',
@@ -160,7 +169,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '控油收毛孔，平价美白精华'
+    description: '控油收毛孔，平价美白精华',
+    usage: '每次 2-3 滴，早晚洁面后使用'
   },
   {
     name: '理肤泉B5多效修复霜',
@@ -176,7 +186,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '修复泛红，舒缓敏感'
+    description: '修复泛红，舒缓敏感',
+    usage: '每次取适量点涂于需修护处，早晚使用'
   },
   {
     name: '珂润润浸保湿面霜',
@@ -192,7 +203,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '花王旗下品牌，专为干燥肌设计'
+    description: '花王旗下品牌，专为干燥肌设计',
+    usage: '每次取适量（约一颗樱桃大小），早晚洁面后涂抹全脸'
   },
   {
     name: 'Olay光感小白瓶',
@@ -208,7 +220,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '美白提亮，淡化色斑'
+    description: '美白提亮，淡化色斑',
+    usage: '每次 2-3 滴，早晚洁面后使用，白天配合防晒'
   },
   {
     name: '露得清A醇晚霜',
@@ -224,7 +237,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '入门级A醇，抗老淡纹'
+    description: '入门级A醇，抗老淡纹',
+    usage: '每次取适量（约一颗黄豆大小），仅晚上使用'
   },
   {
     name: '大宝SOD蜜',
@@ -240,7 +254,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '经典国货，平价保湿'
+    description: '经典国货，平价保湿',
+    usage: '每次取适量，早晚洁面后涂抹全脸'
   },
   {
     name: '完美日记纤长睫毛膏',
@@ -256,7 +271,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '纤长卷翘，不晕染'
+    description: '纤长卷翘，不晕染',
+    usage: '每次取适量，Z 字形刷于睫毛'
   },
   {
     name: '芭比波朗虫草粉底液',
@@ -272,7 +288,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '养肤粉底液，卸妆后皮肤状态更好'
+    description: '养肤粉底液，卸妆后皮肤状态更好',
+    usage: '每次 1 泵，用粉底刷或海绵均匀涂抹全脸'
   },
   {
     name: '安热沙防晒霜',
@@ -288,7 +305,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '防水防汗，户外必备防晒'
+    description: '防水防汗，户外必备防晒',
+    usage: '每次一元硬币大小，出门前 15 分钟涂抹全脸，户外每 2 小时补涂'
   },
   {
     name: '修丽可CE精华',
@@ -304,7 +322,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '抗氧化天花板，医美后必备'
+    description: '抗氧化天花板，医美后必备',
+    usage: '每次 4-5 滴，早上洁面后使用，白天配合防晒'
   },
   // 更多国货
   {
@@ -321,7 +340,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '医美级玻尿酸，补水锁水'
+    description: '医美级玻尿酸，补水锁水',
+    usage: '每次 2-3 滴，早晚洁面后使用'
   },
   {
     name: '花西子百鸟朝凤散粉',
@@ -337,7 +357,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '定妆控油，国风包装'
+    description: '定妆控油，国风包装',
+    usage: '每次取适量，用粉扑轻按于全脸定妆'
   },
   {
     name: '敷尔佳医用面膜',
@@ -353,7 +374,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '医美后修复，补水镇定'
+    description: '医美后修复，补水镇定',
+    usage: '每周 2-3 次，每次敷 15-20 分钟后取下'
   },
   {
     name: '润百颜玻尿酸次抛精华',
@@ -369,7 +391,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '次抛精华，方便卫生'
+    description: '次抛精华，方便卫生',
+    usage: '每次 1 支，早晚洁面后使用'
   },
   {
     name: '上水和肌肌底液',
@@ -385,7 +408,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '平价修护屏障精华'
+    description: '平价修护屏障精华',
+    usage: '每次 2-3 滴，早晚洁面后、精华前使用'
   },
   {
     name: 'PURID朴理沁柔精华',
@@ -401,7 +425,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '修护敏感，蓝铜胜肽精华'
+    description: '修护敏感，蓝铜胜肽精华',
+    usage: '每次 2-3 滴，早晚洁面后使用'
   },
   {
     name: '雏菊的天空空气霜',
@@ -417,7 +442,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '轻盈保湿，国货新锐'
+    description: '轻盈保湿，国货新锐',
+    usage: '每次取适量，早晚洁面后涂抹全脸'
   },
   {
     name: '谷雨光感水',
@@ -433,7 +459,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '美白提亮，性价比高'
+    description: '美白提亮，性价比高',
+    usage: '每次取适量轻拍全脸，早晚洁面后使用'
   },
   {
     name: '可复美类人胶原蛋白面膜',
@@ -449,7 +476,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '医美级面膜，敏感肌肤可用'
+    description: '医美级面膜，敏感肌肤可用',
+    usage: '每周 2-3 次，每次敷 15-20 分钟后取下'
   },
   {
     name: '欧佩莱鱼子酱眼霜',
@@ -465,7 +493,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '淡化黑眼圈细纹，平价眼霜'
+    description: '淡化黑眼圈细纹，平价眼霜',
+    usage: '每次米粒大小，早晚点涂于眼周并轻拍吸收'
   },
   // 2024-2025年新品
   {
@@ -482,7 +511,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '2024新品，紧致提亮，抗初老'
+    description: '2024新品，紧致提亮，抗初老',
+    usage: '每次 2-3 滴，早晚洁面后使用'
   },
   {
     name: '可丽金胶原大膜王',
@@ -498,7 +528,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '2024新品，院线级胶原面膜'
+    description: '2024新品，院线级胶原面膜',
+    usage: '每周 2-3 次，每次敷 15-20 分钟后取下'
   },
   {
     name: '优时颜黑引力精华2.0',
@@ -514,7 +545,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '2024升级版，温和抗老紧致'
+    description: '2024升级版，温和抗老紧致',
+    usage: '每次 2-3 滴，早晚洁面后使用'
   },
   {
     name: '米蓓尔粉水2.0',
@@ -530,7 +562,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '2024新版，修护屏障补水'
+    description: '2024新版，修护屏障补水',
+    usage: '每次取适量轻拍全脸，早晚洁面后使用'
   },
   {
     name: '自然堂极地精华露',
@@ -546,7 +579,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '2025新品，极地酵母精粹'
+    description: '2025新品，极地酵母精粹',
+    usage: '每次 2-3 滴，早晚洁面后使用'
   },
   {
     name: '943酵母焕肤水',
@@ -562,7 +596,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '温和代谢角质，提亮肤色'
+    description: '温和代谢角质，提亮肤色',
+    usage: '每次取适量于掌心轻拍全脸，早晚洁面后使用'
   },
   {
     name: '溪木源层孔菌精华',
@@ -578,7 +613,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '控油修护，油皮亲妈'
+    description: '控油修护，油皮亲妈',
+    usage: '每次 2-3 滴，早晚洁面后使用'
   },
   {
     name: '皮宝点痘精华',
@@ -594,7 +630,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '祛痘淡印，急救修护'
+    description: '祛痘淡印，急救修护',
+    usage: '每次 1 滴点涂于痘痘处，早晚洁面后使用'
   },
   {
     name: '欧诗漫珍白因精华',
@@ -610,7 +647,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '2024新品，珍珠美白精华'
+    description: '2024新品，珍珠美白精华',
+    usage: '每次 2-3 滴，早晚洁面后使用'
   },
   {
     name: '春日来信VC精华',
@@ -626,7 +664,8 @@ export const sampleProducts = [
     is_affordable: true,
     image_url: '',
     purchase_url: '',
-    description: '高浓度VC，美白抗氧化'
+    description: '高浓度VC，美白抗氧化',
+    usage: '每次 2-3 滴，早上洁面后使用，白天配合防晒'
   },
   {
     name: 'IS Clinical精华',
@@ -642,7 +681,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '医美级VC精华，抗氧提亮'
+    description: '医美级VC精华，抗氧提亮',
+    usage: '每次 2-3 滴，早晚洁面后使用'
   },
   {
     name: '修丽可RBE精华',
@@ -658,7 +698,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '夜间抗氧，修护日间损伤'
+    description: '夜间抗氧，修护日间损伤',
+    usage: '每次 2-3 滴，早晚洁面后使用'
   },
   {
     name: '兰蔻小黑瓶精华',
@@ -674,7 +715,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '经典肌底精华，修护维稳'
+    description: '经典肌底精华，修护维稳',
+    usage: '每次 1 泵（约 2-3 滴），早晚洁面后使用'
   },
   {
     name: '雅诗兰黛小棕瓶',
@@ -690,7 +732,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '夜间修护，抗老紧致'
+    description: '夜间修护，抗老紧致',
+    usage: '每次 1 滴管，早晚洁面后使用'
   },
   {
     name: '资生堂红腰子精华',
@@ -706,7 +749,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '增强肌肤免疫力，修护维稳'
+    description: '增强肌肤免疫力，修护维稳',
+    usage: '每次 2 泵，早晚洁面后、面霜前使用'
   },
   {
     name: '娇韵诗双萃精华',
@@ -722,7 +766,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '水油双萃，抗老修护'
+    description: '水油双萃，抗老修护',
+    usage: '每次 1 泵，早晚洁面后使用'
   },
   {
     name: '黛珂小紫瓶精华',
@@ -738,7 +783,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '渗透科技，高效保湿'
+    description: '渗透科技，高效保湿',
+    usage: '每次 2-3 滴，早晚洁面后、化妆水后使用'
   },
   {
     name: 'SK-II神仙水',
@@ -754,7 +800,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '经典护肤精华水，控油嫩肤'
+    description: '经典护肤精华水，控油嫩肤',
+    usage: '每次 2-3 滴（约 2-3ml），早晚洁面后轻拍全脸'
   },
   {
     name: '赫莲娜绿宝瓶精华',
@@ -770,7 +817,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '高端修护精华，强韧肌肤屏障'
+    description: '高端修护精华，强韧肌肤屏障',
+    usage: '每次 2-3 滴，早晚洁面后使用'
   },
   {
     name: '馥蕾诗玫瑰花瓣水',
@@ -786,7 +834,8 @@ export const sampleProducts = [
     is_affordable: false,
     image_url: '',
     purchase_url: '',
-    description: '玫瑰精粹，补水舒缓'
+    description: '玫瑰精粹，补水舒缓',
+    usage: '每次取适量轻拍全脸，早晚洁面后使用'
   }
 ];
 

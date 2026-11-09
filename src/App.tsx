@@ -64,6 +64,7 @@ const toDisplayProduct = (p: SupabaseProduct): (typeof sampleProducts)[number] =
   image_url: p.image_url ?? '',
   purchase_url: p.purchase_url ?? '',
   description: p.description ?? '',
+  usage: p.usage ?? '',
 });
 
 // 浏览器兼容性检测
@@ -1703,6 +1704,13 @@ function App() {
                 <h4 className="font-medium text-emerald-800 mb-2">✨ 产品特点</h4>
                 <p className="text-emerald-700">{selectedProduct.description}</p>
               </div>
+
+              {selectedProduct.usage && (
+                <div className="bg-amber-50 rounded-xl p-4">
+                  <h4 className="font-medium text-amber-800 mb-2">📖 用法用量</h4>
+                  <p className="text-amber-700">{selectedProduct.usage}</p>
+                </div>
+              )}
 
               {selectedProduct.suitable_skin_types.length > 0 && (
                 <div className="bg-purple-50 rounded-xl p-4">

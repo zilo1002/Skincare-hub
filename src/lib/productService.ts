@@ -17,6 +17,7 @@ export interface Product {
   image_url: string;
   purchase_url: string;
   description: string;
+  usage: string;
   created_at: string;
   updated_at: string;
 }
