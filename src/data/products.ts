@@ -751,6 +751,57 @@ export const sampleProducts = [
     purchase_url: '',
     description: '玫瑰精粹，补水舒缓',
     usage: '每次取适量轻拍全脸，早晚洁面后使用'
+  },
+  {
+    name: '优时颜微笑眼霜',
+    brand: '优时颜',
+    category: '眼霜',
+    price: '¥267（到手价）',
+    key_ingredients: 'PDRN-850K、拉帕乔、类肉毒肽',
+    suitable_skin_types: ['DS', 'DR', 'OS', 'OR'],
+    rating: 4.6,
+    reviews_count: 0,
+    source: 'manual',
+    country: '中国',
+    is_affordable: false,
+    image_url: '',
+    purchase_url: '',
+    description: 'PDRN+类肉毒肽，淡纹紧致，针对动态纹',
+    usage: '每次米粒大小，早晚点涂于眼周并轻拍吸收'
+  },
+  {
+    name: '安修泽40%油橄榄精华液',
+    brand: '安修泽',
+    category: '精华',
+    price: '¥219',
+    key_ingredients: '油橄榄复合因子',
+    suitable_skin_types: ['DS', 'DR', 'OS', 'OR'],
+    rating: 4.6,
+    reviews_count: 0,
+    source: 'manual',
+    country: '中国',
+    is_affordable: true,
+    image_url: '',
+    purchase_url: '',
+    description: '40%油橄榄复合因子，修护退红维稳',
+    usage: '每次 2-3 滴，早晚洁面后使用'
+  },
+  {
+    name: 'Sukin焕活眼霜',
+    brand: 'Sukin',
+    category: '眼霜',
+    price: '¥150',
+    key_ingredients: '绿咖啡、咖啡因、纯核糖、玫瑰果油',
+    suitable_skin_types: ['DS', 'DR', 'OS', 'OR'],
+    rating: 4.6,
+    reviews_count: 0,
+    source: 'manual',
+    country: '澳大利亚',
+    is_affordable: true,
+    image_url: '',
+    purchase_url: '',
+    description: '绿咖啡+咖啡因，淡化黑眼圈，抗氧抚纹',
+    usage: '每次米粒大小，早晚点涂于眼周并轻拍吸收'
   }
 ];
 
