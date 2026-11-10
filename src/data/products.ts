@@ -395,23 +395,6 @@ export const sampleProducts = [
     usage: '每次取适量轻拍全脸，早晚洁面后使用'
   },
   {
-    name: '可复美类人胶原蛋白面膜',
-    brand: '可复美',
-    category: '面膜',
-    price: '¥119/5片',
-    key_ingredients: '类人胶原蛋白、透明质酸',
-    suitable_skin_types: ['DS', 'OS'],
-    rating: 4.8,
-    reviews_count: 28900,
-    source: 'manual',
-    country: '中国',
-    is_affordable: true,
-    image_url: '',
-    purchase_url: '',
-    description: '医美级面膜，敏感肌肤可用',
-    usage: '每周 2-3 次，每次敷 15-20 分钟后取下'
-  },
-  {
     name: '欧佩莱鱼子酱眼霜',
     brand: '欧佩莱',
     category: '眼霜',
