@@ -20,7 +20,7 @@ SkinCare Hub 是一个综合型护肤知识平台，帮助用户了解自己的�
 **收录内容：**
 - 🩺 **62 个皮肤问题** —— 覆盖脸、头皮、身体、手足、头发 6 大区域
 - 🔬 **16 种 Baumann 肤质分类** —— 基于皮肤科医学理论
-- 💄 **护肤品推荐** —— 国货 + 开价品牌，标注成分/价格/评分，每周更新
+- 💄 **护肤品推荐** —— 国货 + 开价品牌，标注成分/价格/评分，两天一更
 
 ---
 
@@ -50,6 +50,79 @@ SkinCare Hub 是一个综合型护肤知识平台，帮助用户了解自己的�
 | 后端服务 | Supabase（PostgreSQL + Auth + RLS） |
 | 图标库 | lucide-react |
 | 部署 | Vite 静态构建 |
+
+---
+
+## 🚀 本地运行
+
+### 1. 克隆并安装
+
+```bash
+git clone https://github.com/zilo1002/Skincare-hub.git
+cd skincare-hub
+pnpm install
+```
+
+### 2. 配置环境变量
+
+复制环境变量模板：
+
+```bash
+cp .env.example .env
+```
+
+然后编辑 `.env` 填入你的 Supabase 凭据：
+
+```env
+VITE_SUPABASE_URL=https://your-project-ref.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key-here
+```
+
+> 凭据获取路径：Supabase Dashboard → Project Settings → API
+
+### 3. 启动开发服务器
+
+```bash
+pnpm dev
+```
+
+访问 http://localhost:5173
+
+### 4. 构建
+
+```bash
+pnpm build
+```
+
+---
+
+## 🗄 数据库说明
+
+### 数据表
+
+| 表名 | 用途 |
+|------|------|
+| `user_favorites` | 用户收藏的皮肤问题 |
+| `user_favorite_skin_types` | 用户收藏的肤质类型 |
+| `user_custom_skin_types` | 用户自定义肤质 |
+| `user_profiles` | 用户档案与肤质测试结果 |
+| `products` | 护肤品数据 |
+| `product_categories` | 产品分类 |
+| `product_sync_log` | 数据同步日志 |
+
+### 行级安全策略（RLS）
+
+项目为所有用户数据表启用了 RLS，确保用户只能访问自己的数据。配置脚本见 `../supabase-rls-setup.sql`。
+
+### 数据库保活
+
+Supabase 免费层在连续 7 天无活动后会暂停项目，本项目通过 `pg_cron` 定时任务保活：
+
+```sql
+-- 每 7 分钟执行一次，保持数据库活跃
+SELECT cron.schedule('db-keep-alive', '*/7 * * * *', 'SELECT 1');
+```
+
 ---
 
 ## 📁 项目结构

@@ -44,6 +44,14 @@ import {
   type Product as SupabaseProduct
 } from './lib/productService'
 
+// 肤质代码对应的中文名（好物详情里要把中文也写出来，有用户不懂缩写）
+const SKIN_TYPE_NAMES: Record<string, string> = {
+  DS: '干性敏感',
+  DR: '干性耐受',
+  OS: '油性敏感',
+  OR: '油性耐受',
+};
+
 // 好物推荐的排序：评分高在前，评分相同则评价数多的在前
 const sortProductsByRecommendation = (list: typeof sampleProducts) =>
   [...list].sort((a, b) => b.rating - a.rating || b.reviews_count - a.reviews_count);
@@ -1717,7 +1725,7 @@ function App() {
                   <h4 className="font-medium text-purple-800 mb-2">适用肤质</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProduct.suitable_skin_types.map((type, i) => (
-                      <span key={i} className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">{type}</span>
+                      <span key={i} className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">{SKIN_TYPE_NAMES[type] ? `${type} ${SKIN_TYPE_NAMES[type]}` : type}</span>
                     ))}
                   </div>
                 </div>

@@ -344,23 +344,6 @@ export const sampleProducts = [
     usage: '每次 2-3 滴，早晚洁面后使用'
   },
   {
-    name: '花西子百鸟朝凤散粉',
-    brand: '花西子',
-    category: '彩妆',
-    price: '¥149',
-    key_ingredients: '珍珠粉、桃花提取物',
-    suitable_skin_types: ['DS', 'DR', 'OS', 'OR'],
-    rating: 4.6,
-    reviews_count: 8900,
-    source: 'manual',
-    country: '中国',
-    is_affordable: true,
-    image_url: '',
-    purchase_url: '',
-    description: '定妆控油，国风包装',
-    usage: '每次取适量，用粉扑轻按于全脸定妆'
-  },
-  {
     name: '敷尔佳医用面膜',
     brand: '敷尔佳',
     category: '面膜',
