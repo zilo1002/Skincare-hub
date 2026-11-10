@@ -104,23 +104,6 @@ export const sampleProducts = [
     usage: '按套装内各单品用量，早晚依次使用（水→精华→乳/霜）'
   },
   {
-    name: '百雀羚帧颜淡纹霜',
-    brand: '百雀羚',
-    category: '面霜',
-    price: '¥369',
-    key_ingredients: '视黄醇、玻尿酸、胶原蛋白',
-    suitable_skin_types: ['DR'],
-    rating: 4.6,
-    reviews_count: 6200,
-    source: 'manual',
-    country: '中国',
-    is_affordable: false,
-    image_url: '',
-    purchase_url: '',
-    description: '淡化细纹，提拉紧致',
-    usage: '每次取适量（约一颗黄豆大小），早晚洁面后涂抹全脸'
-  },
-  {
     name: '相宜本草红景天精华',
     brand: '相宜本草',
     category: '精华',
@@ -258,23 +241,6 @@ export const sampleProducts = [
     usage: '每次取适量，早晚洁面后涂抹全脸'
   },
   {
-    name: '完美日记纤长睫毛膏',
-    brand: '完美日记',
-    category: '彩妆',
-    price: '¥79',
-    key_ingredients: '蜂蜡、维E',
-    suitable_skin_types: ['DS', 'DR', 'OS', 'OR'],
-    rating: 4.6,
-    reviews_count: 15600,
-    source: 'manual',
-    country: '中国',
-    is_affordable: true,
-    image_url: '',
-    purchase_url: '',
-    description: '纤长卷翘，不晕染',
-    usage: '每次取适量，Z 字形刷于睫毛'
-  },
-  {
     name: '芭比波朗虫草粉底液',
     brand: 'Bobbi Brown',
     category: '底妆',
@@ -342,23 +308,6 @@ export const sampleProducts = [
     purchase_url: '',
     description: '医美级玻尿酸，补水锁水',
     usage: '每次 2-3 滴，早晚洁面后使用'
-  },
-  {
-    name: '敷尔佳医用面膜',
-    brand: '敷尔佳',
-    category: '面膜',
-    price: '¥99/5片',
-    key_ingredients: '透明质酸钠、胶原蛋白',
-    suitable_skin_types: ['DS', 'OS'],
-    rating: 4.7,
-    reviews_count: 23400,
-    source: 'manual',
-    country: '中国',
-    is_affordable: true,
-    image_url: '',
-    purchase_url: '',
-    description: '医美后修复，补水镇定',
-    usage: '每周 2-3 次，每次敷 15-20 分钟后取下'
   },
   {
     name: '润百颜玻尿酸次抛精华',
