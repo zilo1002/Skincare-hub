@@ -641,6 +641,17 @@ export const faceProblems: SkinProblem[] = [
           { name: '溴莫尼定凝胶', price: '$$', type: 'medical', keyIngredient: '溴莫尼定', usage: '每日一次点涂于红斑处，可快速退红', note: '处方药，需医生开具' },
         ],
         precautions: ['必须就医确诊', '不可自行用药']
+      },
+      {
+        type: 'medical',
+        title: '药物联合医用敷料（临床实证）',
+        duration: '遵医嘱，急性期/修复期/巩固期分阶段',
+        cost: '$$',
+        efficacy: 'high',
+        products: [
+          { name: '医用敷料（械字号冷敷贴/修复贴）', price: '$$', type: 'medical', keyIngredient: '重组胶原蛋白/透明质酸钠/生物膜', usage: '在医生指导下配合基础用药使用，按产品说明敷于泛红处', note: '须选正规械字号产品；天猫健康《2026年问题肌泛红修复红皮书》（2026-11-10）临床实证：药物联合医用敷料有效率75.9%，高于单纯用药54.7%' },
+        ],
+        precautions: ['需在医生指导下联合用药', '只选正规械字号医用敷料', '不可自行用含激素药膏', '泛红持续加重需就医']
       }
     ],
     prevention: ['避免刺激因素', '物理防晒', '温和护肤'],
