@@ -2461,6 +2461,56 @@ export const skinProblems: SkinProblem[] = [
     prevention: ['避免阳光直射疤痕', '及时正确护理'],
     whenToSeeDoctor: '疤痕增生或严重影响外观'
   },
+  {
+    id: 'body-vitiligo',
+    area: 'body',
+    category: '色素',
+    subCategory: '白癜风',
+    title: '白癜风（皮肤白斑）',
+    emoji: '⚪',
+    description: '自身免疫导致黑色素细胞受损，皮肤出现边界清晰的白色斑片，需皮肤科确诊。',
+    causes: ['自身免疫攻击黑色素细胞', '遗传易感', '精神压力/外伤诱发', '氧化应激'],
+    symptoms: ['边界清晰的白色斑片', '常见于面部、手部、关节处', '白斑内毛发可能变白', '白斑处皮肤对日晒更敏感'],
+    solutions: [
+      {
+        type: 'medical',
+        title: 'JAK抑制剂外用乳膏（新药，处方药）',
+        duration: '遵医嘱，持续使用数月',
+        cost: '$$$',
+        efficacy: 'high',
+        products: [
+          { name: '鲁索替尼乳膏1.5%（Opzelura）', price: '$$$', type: 'medical', keyIngredient: '鲁索替尼（JAK1/JAK2抑制剂）', usage: '遵医嘱，每日2次涂于白斑处', note: '首个获批用于白癜风复色的外用JAK抑制剂；中国2026年1月获批，新加坡2026年11月获批；须医生评估后使用' },
+        ],
+        precautions: ['必须医生处方并评估', '不可自行购买使用', '用药期间严格防晒']
+      },
+      {
+        type: 'medical',
+        title: '光疗（窄谱中波紫外线 NB-UVB）',
+        duration: '每周2-3次，遵医嘱',
+        cost: '$$',
+        efficacy: 'high',
+        products: [
+          { name: 'NB-UVB光疗（医院/家用光疗仪）', price: '$$', type: 'medical', keyIngredient: '窄谱中波紫外线311nm', usage: '每周2-3次，按医生方案照射', note: '白癜风一线治疗，需在医生指导下进行，家用仪器也须遵医嘱' },
+        ],
+        precautions: ['必须医生制定方案', '照射后注意防晒', '不可自行加量']
+      },
+      {
+        type: 'product',
+        title: '严格防晒+遮盖（日常护理）',
+        duration: '持续护理',
+        cost: '$',
+        efficacy: 'medium',
+        products: [
+          { name: '高倍广谱防晒霜SPF50+', price: '$', type: 'essential', keyIngredient: '广谱防晒', usage: '每日足量涂抹白斑及暴露部位，出门前15分钟涂', note: '白斑处无黑色素保护，极易晒伤，必须严格防晒' },
+          { name: '遮瑕膏/遮盖霜', price: '$', type: 'drugstore', keyIngredient: '遮瑕', usage: '按需涂于白斑处', note: '仅作外观遮盖，不治疗' },
+        ],
+        precautions: ['白斑处避免晒伤', '不用刺激性美白产品'],
+        homeCare: ['规律作息减压', '避免皮肤外伤摩擦', '均衡饮食']
+      }
+    ],
+    prevention: ['严格防晒', '避免皮肤外伤', '减压规律作息', '白斑扩大及时就医'],
+    whenToSeeDoctor: '出现不明原因白斑应尽快就医确诊'
+  },
 ];
 
 // ========== 肤质类型数据 ==========
