@@ -2511,6 +2511,56 @@ export const skinProblems: SkinProblem[] = [
     prevention: ['严格防晒', '避免皮肤外伤', '减压规律作息', '白斑扩大及时就医'],
     whenToSeeDoctor: '出现不明原因白斑应尽快就医确诊'
   },
+  {
+    id: 'hands-eczema-chronic',
+    area: 'hands',
+    category: '皮炎',
+    subCategory: '慢性手部湿疹',
+    title: '慢性手部湿疹',
+    emoji: '🤲',
+    description: '手部皮肤长期反复出现红斑、瘙痒、脱屑、干裂甚至水疱，常见于频繁接触水、洗涤剂或化学品的人群。',
+    causes: ['频繁接触水和洗涤剂', '职业暴露（医护、理发、清洁等）', '特应性体质', '皮肤屏障受损', '外用激素效果不佳或反复发作'],
+    symptoms: ['手部红斑瘙痒', '脱屑干燥', '皮肤增厚粗糙', '严重时开裂、水疱、渗液'],
+    solutions: [
+      {
+        type: 'medical',
+        title: 'JAK抑制剂外用乳膏（新药，处方药）',
+        duration: '遵医嘱，持续使用',
+        cost: '$$$',
+        efficacy: 'high',
+        products: [
+          { name: '德度司特乳膏（Anzupgo，delgocitinib）', price: '$$$', type: 'medical', keyIngredient: '德度司特（泛JAK抑制剂）', usage: '遵医嘱涂于手部患处', note: '2026年11月13日中国获批，用于中重度慢性手部湿疹；DELTA中国3期试验16周达主要终点；此前已在欧盟、英国、美国等地获批；须医生评估后使用' },
+        ],
+        precautions: ['必须医生处方并评估', '不可自行购买使用', '用药期间注意手部防护']
+      },
+      {
+        type: 'product',
+        title: '温和清洁+屏障保湿（日常护理）',
+        duration: '每日护理',
+        cost: '$',
+        efficacy: 'medium',
+        products: [
+          { name: '温和洗手液', price: '$', type: 'drugstore', keyIngredient: '温和表活', usage: '用温水洗手，避免过热的水和强力去油洗手液', note: '减少清洁对屏障的损伤' },
+          { name: '尿素护手霜', price: '$', type: 'drugstore', keyIngredient: '尿素', usage: '每次洗手后涂抹，严重时厚敷过夜', note: '软化角质、强效保湿' },
+          { name: '神经酰胺护手霜', price: '$', type: 'drugstore', keyIngredient: '神经酰胺', usage: '每次洗手后涂抹', note: '修护皮肤屏障' },
+        ],
+        precautions: ['用温水洗手', '避免含酒精的免洗洗手液', '洗手后及时涂护手霜'],
+        homeCare: ['做家务戴手套', '洗手后涂护手霜', '睡前厚涂护手霜戴棉手套']
+      },
+      {
+        type: 'home-remedy',
+        title: '避免诱因+手部防护',
+        duration: '持续防护',
+        cost: '$',
+        efficacy: 'medium',
+        steps: ['做家务、洗碗、清洁时戴手套', '避免直接接触洗涤剂、消毒剂和溶剂', '用温水洗手，少用热水', '工作时按需戴防护手套'],
+        precautions: ['手套内出汗及时更换', '乳胶过敏者用丁腈手套'],
+        homeCare: ['减少洗手次数', '接触刺激物后及时冲洗并保湿']
+      }
+    ],
+    prevention: ['做家务戴手套', '温水洗手', '洗手后及时涂护手霜', '避免长期接触刺激物'],
+    whenToSeeDoctor: '手部湿疹反复发作、开裂渗液或外用激素无效时应就医'
+  },
 ];
 
 // ========== 肤质类型数据 ==========
