@@ -430,23 +430,6 @@ export const sampleProducts = [
     usage: '每次 2-3 滴，早晚洁面后使用'
   },
   {
-    name: '可丽金胶原大膜王',
-    brand: '可丽金',
-    category: '面膜',
-    price: '¥268',
-    key_ingredients: '重组胶原蛋白、泛醇、神经酰胺',
-    suitable_skin_types: ['DS', 'DR', 'OS'],
-    rating: 4.6,
-    reviews_count: 5600,
-    source: 'manual',
-    country: '中国',
-    is_affordable: true,
-    image_url: '',
-    purchase_url: '',
-    description: '2024新品，院线级胶原面膜',
-    usage: '每周 2-3 次，每次敷 15-20 分钟后取下'
-  },
-  {
     name: '优时颜黑引力精华2.0',
     brand: '优时颜',
     category: '精华',
