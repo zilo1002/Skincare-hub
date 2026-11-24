@@ -2485,6 +2485,17 @@ export const skinProblems: SkinProblem[] = [
       },
       {
         type: 'medical',
+        title: 'JAK抑制剂口服药（新药，处方药）',
+        duration: '遵医嘱，每日1次，持续使用',
+        cost: '$$$',
+        efficacy: 'high',
+        products: [
+          { name: '乌帕替尼口服片15mg（Rinvoq）', price: '$$$', type: 'medical', keyIngredient: '乌帕替尼（JAK1抑制剂）', usage: '遵医嘱，每日1次口服15mg', note: '2026年11月23日美国FDA获批，用于12岁及以上非节段型白癜风；首个获批用于白癜风的全身系统性治疗；Viti-Up 3期试验48周面部复色≥75%达23-25%（安慰剂6-7%）；有严重感染等黑框警告，须医生严格评估后使用' },
+        ],
+        precautions: ['必须医生处方并严格评估', '不可自行购买使用', '有严重感染、血栓等黑框警告', '用药期间定期复查']
+      },
+      {
+        type: 'medical',
         title: '光疗（窄谱中波紫外线 NB-UVB）',
         duration: '每周2-3次，遵医嘱',
         cost: '$$',
