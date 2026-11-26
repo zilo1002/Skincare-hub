@@ -207,23 +207,6 @@ export const sampleProducts = [
     usage: '每次 2-3 滴，早晚洁面后使用，白天配合防晒'
   },
   {
-    name: '露得清A醇晚霜',
-    brand: '露得清',
-    category: '面霜',
-    price: '¥159',
-    key_ingredients: '视黄醇、透明质酸',
-    suitable_skin_types: ['DR', 'OR'],
-    rating: 4.6,
-    reviews_count: 28900,
-    source: 'manual',
-    country: '美国',
-    is_affordable: true,
-    image_url: '',
-    purchase_url: '',
-    description: '入门级A醇，抗老淡纹',
-    usage: '每次取适量（约一颗黄豆大小），仅晚上使用'
-  },
-  {
     name: '大宝SOD蜜',
     brand: '大宝',
     category: '面霜',
@@ -615,23 +598,6 @@ export const sampleProducts = [
     purchase_url: '',
     description: '经典肌底精华，修护维稳',
     usage: '每次 1 泵（约 2-3 滴），早晚洁面后使用'
-  },
-  {
-    name: '雅诗兰黛小棕瓶',
-    brand: '雅诗兰黛',
-    category: '精华',
-    price: '¥900',
-    key_ingredients: '律波肽、二裂酵母、玻尿酸',
-    suitable_skin_types: ['DS', 'DR', 'OR'],
-    rating: 4.8,
-    reviews_count: 67800,
-    source: 'manual',
-    country: '美国',
-    is_affordable: false,
-    image_url: '',
-    purchase_url: '',
-    description: '夜间修护，抗老紧致',
-    usage: '每次 1 滴管，早晚洁面后使用'
   },
   {
     name: '资生堂红腰子精华',
