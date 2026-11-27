@@ -765,6 +765,5 @@ export const productCategories = [
   { name: '面膜', icon: '📦', description: '贴片面膜、涂抹面膜、睡眠面膜' },
   { name: '彩妆', icon: '💄', description: '粉底、口红、眼影等' },
   { name: '套装', icon: '🎁', description: '护肤套装、礼盒' },
-  { name: '底妆', icon: '🎨', description: '粉底液、气垫、遮瑕' },
-  { name: '牙膏', icon: '🪥', description: '牙膏、口腔护理' }
+  { name: '底妆', icon: '🎨', description: '粉底液、气垫、遮瑕' }
 ];
