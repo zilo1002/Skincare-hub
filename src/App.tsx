@@ -1568,6 +1568,7 @@ function App() {
                         {product.category === '彩妆' && '💄'}
                         {product.category === '套装' && '🎁'}
                         {product.category === '底妆' && '🎨'}
+                        {product.category === '牙膏' && '🪥'}
                       </div>
                       <div className="text-right">
                         <div className="font-bold text-emerald-600 text-sm sm:text-base">{product.price}</div>
@@ -1674,6 +1675,7 @@ function App() {
                     {selectedProduct.category === '彩妆' && '💄'}
                     {selectedProduct.category === '套装' && '🎁'}
                     {selectedProduct.category === '底妆' && '🎨'}
+                    {selectedProduct.category === '牙膏' && '🪥'}
                   </div>
                   <div>
                     <h2 className="text-xl font-bold text-gray-800">{selectedProduct.name}</h2>
